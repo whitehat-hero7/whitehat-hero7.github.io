@@ -1,39 +1,76 @@
+/* ----------------------------------------
+   Base styling & fonts
+   ---------------------------------------- */
 body {
   margin: 0;
+  padding: 0;
+  overflow-x: hidden;
   font-family: 'Share Tech Mono', monospace;
   background-color: #0f0f0f;
   color: #33ff33;
-  overflow-x: hidden;
   position: relative;
 }
 
-.matrix-bg {
+/* ----------------------------------------
+   Canvas (binary-rain) fills the screen
+   ---------------------------------------- */
+#bgCanvas {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0, 255, 0, 0.05),
-    rgba(0, 255, 0, 0.05) 1px,
-    transparent 1px,
-    transparent 2px
-  );
   z-index: -1;
-  animation: flicker 3s infinite;
 }
 
-@keyframes flicker {
-  0% { opacity: 0.9; }
-  50% { opacity: 0.8; }
-  100% { opacity: 0.9; }
+/* ----------------------------------------
+   Live-terminal banner (fixed at top)
+   ---------------------------------------- */
+#terminal-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  color: #33ff33;
+  padding: 10px 20px;
+  font-size: 1rem;
+  line-height: 1.3;
+  white-space: pre-wrap;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
 }
 
+#terminal-text {
+  display: inline;
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink-cursor 0.8s steps(1) infinite;
+}
+
+@keyframes blink-cursor {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Push content down so it’s not hidden under the banner */
+header {
+  margin-top: 60px; /* height of the terminal banner (approx.) */
+}
+
+/* ----------------------------------------
+   Header & Navigation
+   ---------------------------------------- */
 header {
   padding: 20px;
   text-align: center;
   border-bottom: 1px solid #33ff33;
+  background-color: #0a0a0a;
+  position: relative;
+  z-index: 5;
 }
 
 header h1 {
@@ -45,9 +82,10 @@ header h1 {
 nav ul {
   list-style: none;
   padding: 0;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
 }
 
 nav ul li a {
@@ -60,9 +98,12 @@ nav ul li a:hover {
   color: #00ffcc;
 }
 
+/* ----------------------------------------
+   Main Content
+   ---------------------------------------- */
 main {
   padding: 40px 20px;
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
 }
 
@@ -73,12 +114,49 @@ section {
 h2 {
   border-left: 4px solid #33ff33;
   padding-left: 10px;
+  margin-bottom: 15px;
 }
 
+/* Projects list styling */
+#projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.repo-card {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #33ff33;
+  padding: 12px 16px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.repo-card:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.repo-card a {
+  color: #00ffcc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.repo-info {
+  font-size: 0.9rem;
+  margin-top: 4px;
+  color: #99ff99;
+}
+
+/* ----------------------------------------
+   Footer
+   ---------------------------------------- */
 footer {
   text-align: center;
   padding: 20px;
   border-top: 1px solid #33ff33;
-  font-size: 0.9em;
   background-color: #0a0a0a;
+  font-size: 0.9em;
+  position: relative;
+  z-index: 5;
 }
