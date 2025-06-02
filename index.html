@@ -5,10 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SOC Analyst Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+    rel="stylesheet"
+  />
 </head>
 <body>
-  <div class="matrix-bg"></div>
+  <!-- ================================
+       Binary-rain (cyber code) background
+       ================================= -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- ================================
+       Live terminal welcome banner
+       ================================= -->
+  <div id="terminal-banner">
+    <pre id="terminal-text"></pre><span class="cursor">█</span>
+  </div>
+
+  <!-- ================================
+       Main header/navigation
+       ================================= -->
   <header>
     <h1>GuardianRex | SOC Analyst</h1>
     <nav>
@@ -21,17 +38,24 @@
     </nav>
   </header>
 
+  <!-- ================================
+       Main content
+       ================================= -->
   <main>
     <section id="about">
       <h2>👨‍💻 About Me</h2>
-      <p>Navy veteran turned Cyber Defender. Specializing in Incident Response, Threat Hunting, and Blue Team operations. 4+ years of hands-on SOC experience.</p>
+      <p>
+        Navy veteran turned Cyber Defender. Specializing in Incident Response,
+        Threat Hunting, and Blue Team operations. 4+ years of hands-on SOC
+        experience.
+      </p>
     </section>
 
     <section id="tools">
       <h2>🛠️ Tools & Platforms</h2>
       <ul>
         <li>Splunk SIEM</li>
-        <li>Cisco Secure Endpoint</li>
+        <li>Cisco Secure Endpoint (EDR)</li>
         <li>Wireshark</li>
         <li>Snort</li>
         <li>ServiceNow</li>
@@ -41,13 +65,21 @@
 
     <section id="projects">
       <h2>📁 Projects</h2>
-      <p>Coming soon: Open source detection rules, log parser scripts, and cyber threat dashboards.</p>
+      <p>Below are my public GitHub repos:</p>
+      <div id="projects-list">
+        <!-- JS will populate this -->
+      </div>
     </section>
 
     <section id="contact">
       <h2>📫 Contact</h2>
       <p>Email: yourname@protonmail.com</p>
-      <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
+      <p>
+        GitHub: 
+        <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank"
+          >github.com/YOUR_GITHUB_USERNAME</a
+        >
+      </p>
     </section>
   </main>
 
@@ -58,3 +90,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
